@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include <algorithm>
-#include <math>
 #include <vector>
 #include <map>
 #include <set>
