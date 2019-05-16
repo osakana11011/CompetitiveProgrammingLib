@@ -6,9 +6,10 @@ using namespace std;
 // 型
 using ll = long long;
 template <typename T> using P = pair<T, T>;
-
 // 定数
 const ll INF = 1e18;
+
+
 
 // 辺
 template <typename T>
@@ -49,7 +50,9 @@ class Graph {
     }
     /**
       ダイクストラ法
+      計算量: O((E+V)logV)
       s: 始点
+      返り値: 始点sからのそれぞれの距離
       */
     vector<T> dijkstra(int s) {
       // 距離情報初期化
@@ -78,5 +81,38 @@ class Graph {
         }
       }
       return d;
+    }
+    /**
+      ベルマンフォード法
+      計算量: O(|V|・|E|)
+      */
+    vector<T> bellmanFord(int s) {
+      // 距離情報初期化
+      vector<T> d(this->nodeN, INF);
+      d[s] = 0;
+
+      // 全ての辺に対して、nodeN回更新を掛ける
+      for(int i = 0; i < this->nodeN; i++) {
+        for(int j = 0; j < this->nodeN; j++) {
+          for(Edge<T> edge : this->graph[j].edges) {
+            if(d[edge.to] > d[j] + edge.cost) {
+              d[edge.to] = d[j] + edge.cost;
+              // 負閉路検出
+              // nodeN回目のループで、目的地Nへのルートが更新されるなら負閉路
+              if(i == this->nodeN-1 && edge.to == this->nodeN-1) {
+                d[this->nodeN-1] = INF;
+                return d;
+              }
+            }
+          }
+        }
+      }
+      return d;
+    }
+    /**
+      getter
+      */
+    int getNodeN() {
+      return this->nodeN;
     }
 };
