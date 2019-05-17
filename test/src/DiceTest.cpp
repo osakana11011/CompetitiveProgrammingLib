@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
-#include "../lib/Dice.hpp"
+#include "../../lib/template.hpp"
+#include "../../lib/Dice/common.hpp"
 
 namespace {
   TEST(Dice, initialize) {

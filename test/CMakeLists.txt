@@ -5,7 +5,7 @@ find_package(GTest REQUIRED)
 set(CMAKE_CXX_FLAGS "-std=c++11")
 
 file(GLOB allTestFile
-  "*.cpp"
+  "src/*.cpp"
 )
 
 add_executable(libtest ${allTestFile})

@@ -3,13 +3,7 @@
 
 using namespace std;
 
-// 型
-using ll = long long;
-template <typename T> using P = pair<T, T>;
-// 定数
-const ll INF = 1e18;
-
-
+/*--- begin ---*/
 
 // 辺
 struct Edge {
@@ -20,8 +14,9 @@ struct Edge {
 
 // ノード
 struct Node {
+  int id;
   vector<Edge> edges;
-  Node() {}
+  Node(int id) : id(id) {}
   void addEdge(int to, ll cost) {
     edges.push_back(Edge(to, cost));
   }
@@ -31,19 +26,16 @@ struct Node {
 class Graph {
   private:
     int nodeN;
-    vector<Node> graph;
+    vector<Node> nodes;
   public:
     Graph(int nodeN) {
       this->nodeN = nodeN;
       for(int i = 0; i < nodeN; i++) {
-        graph.push_back(Node());
+        nodes.push_back(Node(i));
       }
     }
-    /**
-      辺を追加する
-      */
     void addEdge(int from, int to, ll cost) {
-      graph[from].addEdge(to, cost);
+      nodes[from].addEdge(to, cost);
     }
     /**
       getter
@@ -51,7 +43,9 @@ class Graph {
     int getNodeN() {
       return this->nodeN;
     }
-    vector<Node> getGraph() {
-      return this->graph;
+    vector<Node> getNodes() {
+      return this->nodes;
     }
 };
+
+/*--- end ---*/

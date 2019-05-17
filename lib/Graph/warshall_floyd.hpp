@@ -2,16 +2,16 @@
   ワーシャルフロイド法
   計算量: O(V^3)
   */
-vector<vector<ll>> warshallFloyd(Graph g) {
-  int n = g.getNodeN();
-  vector<Node> graph = g.getGraph();
-
+vector<vector<ll>> warshallFloyd(Graph graph) {
+  // 距離情報初期化
+  int n = graph.getNodeN();
   vector<vector<ll>> d(n, vector<ll>(n, INF));
-
   for(int i = 0; i < n; i++) {
     d[i][i] = 0;
-    for(Edge edge : graph[i].edges) {
-      d[i][edge.to] = edge.cost;
+  }
+  for(Node node : graph.getNodes()) {
+    for(Edge edge : node.edges) {
+      d[node.id][edge.to] = edge.cost;
     }
   }
 

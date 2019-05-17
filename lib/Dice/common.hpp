@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+
+/*--- begin ---*/
+
 class Dice {
   private:
     int front, back, up, right, bottom, left;
@@ -70,3 +73,5 @@ class Dice {
       return this->back;
     }
 };
+
+/*--- end ---*/
