@@ -15,6 +15,9 @@
 #include <numeric>
 using namespace std;
 
+// Macro
+#define rep(i, N) for(int i=0; i<(int)N; i++)
+
 // Type
 template <typename T> using P = pair<T, T>;
 using ll = long long;
