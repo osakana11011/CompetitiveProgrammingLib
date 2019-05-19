@@ -27,3 +27,7 @@ using ull = unsigned long long;
 // Constants
 const ll INF = 1e18;
 const ll MOD = 1000000007;
+
+int main() {
+  
+}
