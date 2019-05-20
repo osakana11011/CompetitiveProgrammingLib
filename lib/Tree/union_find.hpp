@@ -31,4 +31,4 @@ struct UnionFind {
     int y_root = root(y);
     return x_root == y_root;
   }
-}
+};
