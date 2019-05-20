@@ -16,17 +16,25 @@
 using namespace std;
 
 // Macro
-#define rep(i, N) for(int i=0; i<(int)N; i++)
-#define rrep(i, N) for(int i=(int)N-1; i>=0; i--)
+#define REP(i, N) for(int i=0; i<(int)N; i++)
+#define REPR(i, N) for(int i=(int)N-1; i>=0; i--)
 
 // Type
-template <typename T> using P = pair<T, T>;
 using ll = long long;
 using ull = unsigned long long;
+using vi = vector<int>;
+using vl = vector<ll>;
+using pii = pair<int, int>;
+using pll = pair<ll, ll>;
 
 // Constants
 const ll INF = 1e18;
 const ll MOD = 1000000007;
+
+// Floating
+const double EPS = 1e-11;
+#define EQ0(x) (abs(x) < EPS)
+#define EQ(x, y) (abs(a-b) < EPS)
 
 int main() {
   

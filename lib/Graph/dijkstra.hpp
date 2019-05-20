@@ -7,10 +7,10 @@ vector<ll> dijkstra(Graph graph, int s) {
   // sから探索を始める
   // キューの要素は、(コスト, ノード番号)
   vector<Node> nodes = graph.getNodes();
-  priority_queue<P<ll> , vector<P<ll>> ,greater<P<ll>>> queue;
-  queue.push(P<ll>(0, s));
+  priority_queue<pll , vector<pll> ,greater<pll>> queue;
+  queue.push(pll(0, s));
   while(!queue.empty()) {
-    P<ll> p=queue.top(); queue.pop();
+    pll p=queue.top(); queue.pop();
     ll cost = p.first;
     int pos = p.second;
 
@@ -19,7 +19,7 @@ vector<ll> dijkstra(Graph graph, int s) {
     for(Edge edge : nodes[pos].edges) {
       if(d[edge.to] > cost + edge.cost) {
         d[edge.to] = cost + edge.cost;
-        queue.push(P<ll>(d[edge.to], edge.to));
+        queue.push(pll(d[edge.to], edge.to));
       }
     }
   }
