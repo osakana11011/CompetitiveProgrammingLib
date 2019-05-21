@@ -1,10 +1,3 @@
-#include <vector>
-#include <queue>
-
-using namespace std;
-
-/*--- begin ---*/
-
 // 辺
 struct Edge {
   int to;
@@ -47,5 +40,3 @@ class Graph {
       return this->nodes;
     }
 };
-
-/*--- end ---*/
