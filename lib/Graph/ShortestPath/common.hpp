@@ -1,42 +1,32 @@
-// 辺
+/**
+  辺
+  to: 辺の行き先
+  cost: 辺の重み
+  T: 重みの型
+  */
+template <typename T = int>
 struct Edge {
   int to;
-  ll cost;
-  Edge(int to, ll cost) : to(to), cost(cost) {}
+  T cost;
+  Edge(int to, T cost) : to(to), cost(cost) {}
 };
 
-// ノード
-struct Node {
-  int id;
-  vector<Edge> edges;
-  Node(int id) : id(id) {}
-  void addEdge(int to, ll cost) {
-    edges.push_back(Edge(to, cost));
-  }
-};
-
-// グラフ
+/**
+  n: 頂点数
+  graph: グラフ本体
+  */
+template <typename T = int>
 class Graph {
-  private:
-    int nodeN;
-    vector<Node> nodes;
   public:
-    Graph(int nodeN) {
-      this->nodeN = nodeN;
-      for(int i = 0; i < nodeN; i++) {
-        nodes.push_back(Node(i));
-      }
+    int n;
+    vector<vector<Edge<T>>> graph;
+
+    Graph(int n) {
+      this->n = n;
+      this->graph.assign(n, vector<Edge<T>>());
     }
-    void addEdge(int from, int to, ll cost) {
-      nodes[from].addEdge(to, cost);
-    }
-    /**
-      getter
-      */
-    int getNodeN() {
-      return this->nodeN;
-    }
-    vector<Node> getNodes() {
-      return this->nodes;
+
+    void addEdge(int from, int to, T cost) {
+      this->graph[from].push_back(Edge<T>(to, cost));
     }
 };

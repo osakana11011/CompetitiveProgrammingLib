@@ -24,8 +24,9 @@ using ll = long long;
 using ull = unsigned long long;
 using vi = vector<int>;
 using vl = vector<ll>;
-using pii = pair<int, int>;
-using pll = pair<ll, ll>;
+
+template <typename T = int>
+using P<T> = pair<T, T>
 
 // Constants
 const ll INF = 1e18;

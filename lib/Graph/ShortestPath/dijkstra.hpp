@@ -1,25 +1,30 @@
-vector<ll> dijkstra(Graph graph, int s) {
+/**
+  ダイクストラ法 (単一始点最短経路問題)
+  g: グラフ
+  s: 始点
+  */
+template <typename T = int>
+vector<T> dijkstra(Graph<T> g, int s) {
   // 距離情報初期化
-  int n = graph.getNodeN();
-  vector<ll> d(n, INF);
+  T infT = numeric_limits<T>::max() / 2;
+  vector<T> d(g.n, infT);
   d[s] = 0;
 
   // sから探索を始める
-  // キューの要素は、(コスト, ノード番号)
-  vector<Node> nodes = graph.getNodes();
-  priority_queue<pll , vector<pll> ,greater<pll>> queue;
-  queue.push(pll(0, s));
+  priority_queue<P<T> , vector<P<T>> ,greater<P<T>>> queue;
+  queue.push(make_pair(0, s));
+
   while(!queue.empty()) {
-    pll p=queue.top(); queue.pop();
-    ll cost = p.first;
+    P<T> p = queue.top(); queue.pop();
+    T nowCost = p.first;
     int pos = p.second;
 
-    if(d[pos] < cost) continue;
+    if(d[pos] < nowCost) continue;
 
-    for(Edge edge : nodes[pos].edges) {
-      if(d[edge.to] > cost + edge.cost) {
-        d[edge.to] = cost + edge.cost;
-        queue.push(pll(d[edge.to], edge.to));
+    for(Edge<T> edge : g.graph[pos]) {
+      if(d[edge.to] > d[pos] + edge.cost) {
+        d[edge.to] = d[pos] + edge.cost;
+        queue.push(make_pair(d[edge.to], edge.to));
       }
     }
   }
