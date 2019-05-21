@@ -1,33 +1,37 @@
-// 辺
+/**
+  辺
+  to: どこへ辺が出ているか
+  rev: 逆向き矢印のインデックス
+  cap: 辺に流せる量
+  */
+template <typename T = int>
 struct Edge {
   int to;
-  ll cap;
+  T cap;
   int rev;
-  Edge(int to, ll cap, int rev) : to(to), cap(cap), rev(rev) {}
+  Edge(int to, T cap, int rev) : to(to), cap(cap), rev(rev) {}
 };
 
-// ノード
-struct Node {
-  int id;
-  vector<Edge> edges;
-  Node(int id) : id(id) {}
-  void addEdge(int to, ll cap, int rev) {
-    edges.push_back(Edge(to, cap, rev));
-  }
-};
 
-struct Graph {
-  int nodeN;
-  vector<Node> nodes;
+/**
+  グラフ
+  n: 頂点数
+  graph: グラフ本体
+  T: 辺のcapacityの型
+  */
+template <typename T = int>
+class Graph {
+  public :
+    int n;
+    vector<vector<Edge<T>>> graph;
 
-  Graph(int nodeN) : nodeN(nodeN) {
-    for(int i = 0; i < nodeN; i++) {
-      nodes.push_back(Node(i));
+    Graph(int n) {
+      this->n = n;
+      this->graph.assign(n, vector<Edge<T>>());
     }
-  }
 
-  void addEdge(int from, int to, ll cap) {
-    nodes[from].addEdge(to, cap, nodes[to].edges.size());
-    nodes[to].addEdge(from, 0, nodes[from].edges.size()-1);
-  }
+    void addEdge(int from, int to, T cap) {
+      this->graph[from].push_back(Edge<T>(to, cap, this->graph[to].size()));
+      this->graph[to].push_back(Edge<T>(from, 0, this->graph[from].size() - 1));
+    }
 };
