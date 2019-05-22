@@ -2,15 +2,21 @@
   ダイクストラ法 (単一始点最短経路問題)
   g: グラフ
   s: 始点
+
+  計算量: (E+V)logV
+
+  依存ライブラリ:
+    - template.hpp
+    - Graph/ShortestPath/common.hpp
   */
 template <typename T = int>
 vector<T> dijkstra(Graph<T> g, int s) {
   // 距離情報初期化
-  T infT = numeric_limits<T>::max() / 2;
-  vector<T> d(g.n, infT);
+  T INF = getINF<T>();
+  vector<T> d(g.n, INF);
   d[s] = 0;
 
-  // sから探索を始める
+  // 優先度付きキューを用いて、次探索するべきノードを求める
   priority_queue<P<T> , vector<P<T>> ,greater<P<T>>> queue;
   queue.push(make_pair(0, s));
 

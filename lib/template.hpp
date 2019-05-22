@@ -1,4 +1,4 @@
-// Add compile option "-std=c++11" for C++11 compile.
+// WARNING: Add compile option "-std=c++11" for C++11 compile.
 
 #include <iostream>
 #include <stdio.h>
@@ -21,22 +21,23 @@ using namespace std;
 
 // Type
 using ll = long long;
-using ull = unsigned long long;
-using vi = vector<int>;
-using vl = vector<ll>;
-
-template <typename T = int>
-using P<T> = pair<T, T>
+template <typename T = int> using P = pair<T, T>;
 
 // Constants
-const ll INF = 1e18;
 const ll MOD = 1000000007;
+
+/**
+  型に合わせたINFを返す
+  int: 214,748,364 (2.14 * 1e8)
+  ll : 922,337,203,685,477,580 (9.22 * 1e17)
+*/
+template <typename T = int>
+T getINF() {
+  // NOTE: INF同士を足してもオーバーフロー起こさないように、10で割っている
+  return numeric_limits<T>::max() / 10;
+}
 
 // Floating
 const double EPS = 1e-11;
 #define EQ0(x) (abs(x) < EPS)
 #define EQ(x, y) (abs(a-b) < EPS)
-
-int main() {
-  
-}
