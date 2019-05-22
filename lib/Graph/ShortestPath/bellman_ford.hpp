@@ -1,13 +1,26 @@
 /**
-  ベルマンフォード法
-  計算量: O(|V|・|E|)
-  */
+  ベルマンフォード法 (単一始点最短経路問題 / 辺の重みが負数でもOK)
+  NOTE: 辺の重みが負数でもOK
+  WARNING: 重みが全て正数ならdijkstra法の方が速い
+
+  引数:
+    - Graph<T> g: グラフ
+    - int s: 出発地点のノード番号
+
+  計算量:
+    - O(|V|・|E|)
+
+  返り値:
+    - 出発地点sからのそれぞれのノードへの距離
+
+  依存ライブラリ:
+    - template.hpp
+    - Graph/ShortestPath/common.hpp
+*/
 template <typename T = int>
 vector<T> bellmanFord(Graph<T> g, int s) {
-  // NOTE: INF同士を足したとしてもオーバーフロー起こさないように2で割っている
-  T INF = numeric_limits<T>::max() / 2;
-
   // 距離情報初期化
+  T INF = getINF<T>();
   vector<T> d(g.n, INF);
   d[s] = 0;
 

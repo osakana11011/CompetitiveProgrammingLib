@@ -3,7 +3,7 @@
   to: 辺の行き先
   cost: 辺の重み
   T: 重みの型
-  */
+*/
 template <typename T = int>
 struct Edge {
   int to;
@@ -14,7 +14,7 @@ struct Edge {
 /**
   n: 頂点数
   graph: グラフ本体
-  */
+*/
 template <typename T = int>
 class Graph {
   public:
