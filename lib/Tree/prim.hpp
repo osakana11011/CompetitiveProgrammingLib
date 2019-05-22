@@ -1,6 +1,7 @@
 /**
   プリム法
   計算量: O((V+E)logV)
+  FIXME: Graphを修正したので直す
   */
 ll prim(Graph graph) {
   // 初期化

@@ -15,7 +15,7 @@
   依存ライブラリ:
     - template.hpp
     - Graph/ShortestPath/common.hpp
-  */
+*/
 template <typename T = int>
 vector<T> dijkstra(Graph<T> g, int s) {
   // 距離情報初期化

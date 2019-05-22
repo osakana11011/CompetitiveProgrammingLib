@@ -1,9 +1,9 @@
 /**
-  辺
+  最大フロー用の辺
   to: どこへ辺が出ているか
-  rev: 逆向き矢印のインデックス
   cap: 辺に流せる量
-  */
+  rev: 逆向き矢印のインデックス
+*/
 template <typename T = int>
 struct Edge {
   int to;
@@ -14,7 +14,7 @@ struct Edge {
 
 
 /**
-  グラフ
+  最大フロー用のグラフ
   n: 頂点数
   graph: グラフ本体
   T: 辺のcapacityの型

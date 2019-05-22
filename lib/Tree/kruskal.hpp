@@ -1,3 +1,4 @@
+FIXME: Graphを修正したので直す
 ll kruskal(Graph graph) {
   // 辺を全てpriority_queueに突っ込む
   using P = pair<ll, pair<int, int>>;
