@@ -1,31 +1,42 @@
 /**
-  プリム法
-  計算量: O((V+E)logV)
-  FIXME: Graphを修正したので直す
-  */
-ll prim(Graph graph) {
+  プリム法 (最小全域木)
+
+  引数:
+    - Graph<T> g: グラフ
+
+  返り値:
+    - 最小全域木の総コスト
+
+  依存ライブラリ:
+    - template.hpp
+    - Graph/ShortestPath/common.hpp
+
+  計算量:
+    - O((V+E)logV)
+*/
+template <typename T = int>
+T prim(Graph<T> g) {
   // 初期化
-  int n = graph.getNodeN();
-  bool used[n];
-  for(int i = 0; i < n; i++) used[i] = false;
+  bool used[g.n];
+  for(int i = 0; i < g.n; i++) used[i] = false;
 
   // 本処理
-  vector<Node> nodes = graph.getNodes();
-  priority_queue<pll, vector<pll>, greater<pll>> queue;  // cost, to
-  queue.push(pll(0, 0));
-  ll sumTreeCost = 0;
+  priority_queue<P<T>, vector<P<T>>, greater<P<T>>> queue;  // cost, to
+  queue.push(make_pair(0, 0));
+  T sumTreeCost = 0;
 
   while(!queue.empty()) {
-    pll p = queue.top(); queue.pop();
-    ll cost = p.first;
+    P<T> p = queue.top(); queue.pop();
+    T cost = p.first;
     int pos = p.second;
 
-    if(used[pos]) continue;
+    if(used[pos]) continue;  // posが既に木に含まれているならスキップ
     used[pos] = true;
     sumTreeCost += cost;
 
-    for(Edge edge : nodes[pos].edges)
-      queue.push(pll(edge.cost, edge.to));
+    for(Edge edge : g.graph[pos]) {
+      queue.push(make_pair(edge.cost, edge.to));
+    }
   }
   return sumTreeCost;
 }
