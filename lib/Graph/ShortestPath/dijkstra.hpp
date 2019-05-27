@@ -5,13 +5,10 @@
   引数:
     - Graph<T> g: グラフ
     - int s: 出発地点のノード番号
-
   返り値:
     - 出発地点sからのそれぞれのノードへの距離
-
   計算量:
     - (E+V)logV
-
   依存ライブラリ:
     - template.hpp
     - Graph/ShortestPath/common.hpp

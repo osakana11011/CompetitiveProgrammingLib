@@ -3,14 +3,11 @@
 
   引数:
     - Graph<T> g: グラフ
-
   返り値:
     - 全ての対に関する最短経路リスト
       ex) d[from][to]: fromからtoへの最短経路
-
   計算量:
     - O(V^3)
-
   依存ライブラリ:
     - template.hpp
     - Graph/ShortestPath/common.hpp
