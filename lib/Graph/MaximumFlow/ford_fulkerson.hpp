@@ -41,10 +41,10 @@ class FordFulkerson : public Graph<T> {
       sからtへの最大フローを求める
     */
     T maxFlow(int s, int t) {
-      T INF = getINF<T>(), flow = 0, k_flow;
+      T flow = 0, k_flow;
       timestamp = 0;
 
-      while((k_flow = dfs(s, t, INF)) > 0) {
+      while((k_flow = dfs(s, t, INF<T>)) > 0) {
         flow += k_flow;
         timestamp++;
       }

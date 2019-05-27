@@ -18,9 +18,8 @@
 template <typename T = int>
 vector<vector<T>> warshallFloyd(Graph<T> g) {
   // 距離情報初期化
-  T INF = getINF<T>();
   int n = graph.getNodeN();
-  vector<vector<T>> d(n, vector<T>(n, INF));
+  vector<vector<T>> d(n, vector<T>(n, INF<T>));
   for(int i = 0; i < n; i++) {
     d[i][i] = 0;
   }

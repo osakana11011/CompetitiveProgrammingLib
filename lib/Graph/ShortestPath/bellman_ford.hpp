@@ -20,8 +20,7 @@
 template <typename T = int>
 vector<T> bellmanFord(Graph<T> g, int s) {
   // 距離情報初期化
-  T INF = getINF<T>();
-  vector<T> d(g.n, INF);
+  vector<T> d(g.n, INF<T>);
   d[s] = 0;
 
   // 全ての辺に対して、頂点の数分の更新をかける
@@ -35,7 +34,7 @@ vector<T> bellmanFord(Graph<T> g, int s) {
           // 負閉路検出
           // WARNING: 不平路を検出した時、d[n-1]にINFを埋め込んで返しているので、返した後の判定注意
           if(from == n-1 && edge.to == n-1) {
-            d[n-1] = INF;
+            d[n-1] = INF<T>;
             return d;
           }
         }

@@ -1,4 +1,4 @@
-// WARNING: Add compile option "-std=c++11" for C++11 compile.
+// WARNING: Add compile option "-std=c++14" for C++11 compile.
 
 #include <iostream>
 #include <stdio.h>

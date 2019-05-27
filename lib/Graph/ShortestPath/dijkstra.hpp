@@ -19,8 +19,7 @@
 template <typename T = int>
 vector<T> dijkstra(Graph<T> g, int s) {
   // 距離情報初期化
-  T INF = getINF<T>();
-  vector<T> d(g.n, INF);
+  vector<T> d(g.n, INF<T>);
   d[s] = 0;
 
   // 優先度付きキューを用いて、次探索するべきノードを求める
