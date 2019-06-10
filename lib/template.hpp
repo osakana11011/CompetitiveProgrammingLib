@@ -47,6 +47,6 @@ const double EPS = 1e-11;
 #define EQ(x, y) (abs(a-b) < EPS)
 
 int main() {
-  
+
   return 0;
 }
