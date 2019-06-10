@@ -1,5 +1,3 @@
-// WARNING: Add compile option "-std=c++11" for C++11 compile.
-
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,8 +15,8 @@ using namespace std;
 
 
 /*--- Macro ---*/
-#define rep(i, a, b) for(int i=(int)a; i<(int)b; i++)
-#define erep(i, a, b) for(int i=(int)a; i<=(int)b; i++)
+#define rep(i, n) for(int i=0; i<(int)n; i++)
+#define rep1(i, n) for(int i=1; i<(int)n; i++)
 #define mp make_pair
 #define pb push_back
 
@@ -49,6 +47,6 @@ const double EPS = 1e-11;
 #define EQ(x, y) (abs(a-b) < EPS)
 
 int main() {
-
+  
   return 0;
 }
