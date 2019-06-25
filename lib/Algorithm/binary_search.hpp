@@ -1,19 +1,15 @@
-/**
-  二分探索
+// サーチ条件
+template <typename T = int>
+bool isOK(T element, T key) {
+    if (element >= key) return true;
+    else return false;
+}
 
-  引数:
-    - T key: 基準になる値
-
-  返り値:
-    - isOKを満たす最小のインデックス
-
-  依存ライブラリ:
-    - なし
-*/
+// isOKを満たす最小のキーを求める
 template <typename T = int>
 int binary_search(vector<T> v, T key) {
-  int left = -1; //「index = 0」が条件を満たすこともあるので、初期値は -1
-  int right = (int)v.size(); // 「index = a.size()-1」が条件を満たさないこともあるので、初期値は v.size()
+  int left = -1;
+  int right = (int)v.size();
 
   while (right - left > 1) {
       int mid = left + (right - left) / 2;
@@ -22,13 +18,7 @@ int binary_search(vector<T> v, T key) {
       else left = mid;
   }
 
-  /* left は条件を満たさない最大の値、right は条件を満たす最小の値になっている */
+  // left  -> isOKを満たさない最大値
+  // right -> isOKを満たす最小値
   return right;
-}
-
-// 条件を満たすかどうか
-template <typename T = int>
-bool isOK(T element, T key) {
-    if (element >= key) return true;
-    else return false;
 }
