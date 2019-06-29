@@ -1,6 +1,3 @@
-/**
-  「{base}^{exponent}%mod」 を計算する
- */
 ll powMod(ll base, ll exponent, ll mod) {
   assert(exponent >= 0);
 
